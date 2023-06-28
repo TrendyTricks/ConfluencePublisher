@@ -20,10 +20,12 @@ jobs:
     - name: Publish Markdown to Confluence
       uses: markdown-confluence/publish-action@v5
       with:
-        confluenceBaseUrl: https://trickytrends.atlassian.net/wiki/home
+        confluenceBaseUrl: https://trickytrends.atlassian.net
         confluenceParentId: 65754
+        folderToPublish: "docs"
         atlassianUserName: ${{ secrets.ATLASSIAN_USERNAME }}
         atlassianApiToken: ${{ secrets.ATLASSIAN_API_TOKEN }}
+        
 
 #     - name: Publish MD files to the Confluence space
 #       env:

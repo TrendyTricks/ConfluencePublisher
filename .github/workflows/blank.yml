@@ -1,0 +1,34 @@
+name: Publish
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+permissions:
+  contents: read
+
+jobs:
+  publish:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v3
+      
+    - name: Publish Markdown to Confluence
+      uses: markdown-confluence/publish@v1
+      with:
+        confluenceBaseUrl: https://trickytrends.atlassian.net/wiki/home
+        confluenceParentId: 65754
+        atlassianUserName: ${{ secrets.ATLASSIAN_USERNAME }}
+        atlassianApiToken: ${{ secrets.ATLASSIAN_API_TOKEN }}
+
+#     - name: Publish MD files to the Confluence space
+#       env:
+#         LOGIN: ${{secrets.confluence_login }}
+#         PASSWORD: ${{secrets.confluence_password }}
+#       run: |
+#         python3 ./publisher/main.py --login="$LOGIN" --password="$PASSWORD"

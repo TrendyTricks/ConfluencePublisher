@@ -16,8 +16,9 @@ jobs:
     - name: Checkout
       uses: actions/checkout@v3
       
+       
     - name: Publish Markdown to Confluence
-      uses: markdown-confluence/publish@main
+      uses: markdown-confluence/publish-action@v5
       with:
         confluenceBaseUrl: https://trickytrends.atlassian.net/wiki/home
         confluenceParentId: 65754

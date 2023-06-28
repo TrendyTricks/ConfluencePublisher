@@ -22,8 +22,10 @@ jobs:
       with:
         confluenceBaseUrl: https://trickytrends.atlassian.net/wiki/home
         confluenceParentId: 65754
+        contentRoot: "/docs"
         atlassianUserName: ${{ secrets.ATLASSIAN_USERNAME }}
         atlassianApiToken: ${{ secrets.ATLASSIAN_API_TOKEN }}
+        
 
 #     - name: Publish MD files to the Confluence space
 #       env:
